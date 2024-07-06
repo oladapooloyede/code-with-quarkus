@@ -1,7 +1,6 @@
 FROM maven:3-openjdk-11 AS builder
 COPY ./pom.xml /usr/src/app/
 RUN mvn -f /usr/src/app/pom.xml -B de.qaware.maven:go-offline-maven-plugin:resolve-dependencies
-COPY ./.env /usr/src/app/
 COPY src /usr/src/app/src
 WORKDIR /usr/src/app
 RUN mvn -DskipTests=true -Dquarkus.package.type=mutable-jar -B de.qaware.maven:go-offline-maven-plugin:resolve-dependencies clean package
