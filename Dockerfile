@@ -3,7 +3,7 @@ FROM registry.access.redhat.com/ubi8/openjdk-17:1.19
 ENV LANGUAGE='en_US:en'
 
 RUN echo "PWD is: $PWD"
-RUN ls
+RUN ls /home/jboss
 
 COPY target/lib/* /deployments/lib/
 COPY target/*-runner.jar /deployments/quarkus-run.jar
