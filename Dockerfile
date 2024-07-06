@@ -39,7 +39,8 @@ RUN microdnf install curl ca-certificates ${JAVA_PACKAGE} \
     && chown 1001 /deployments/run-java.sh \
     && chmod 540 /deployments/run-java.sh \
     && echo "securerandom.source=file:/dev/urandom" >> /etc/alternatives/jre/conf/security/java.security
-RUN ls /tmp/build
+RUN echo "PWD is: $PWD"
+RUN ls $PWD/target
 
 # Configure the JAVA_OPTIONS, you can add -XshowSettings:vm to also display the heap size.
 ENV JAVA_OPTIONS="-Dquarkus.http.host=0.0.0.0 -Djava.util.logging.manager=org.jboss.logmanager.LogManager"
