@@ -2,10 +2,7 @@ FROM registry.access.redhat.com/ubi8/openjdk-17:1.19
 
 ENV LANGUAGE='en_US:en'
 
-RUN ./mwnw clean package
-
-RUN echo "PWD is: $PWD"
-RUN ls /home/jboss
+RUN ls /tmp
 
 COPY target/lib/* /deployments/lib/
 COPY target/*-runner.jar /deployments/quarkus-run.jar
