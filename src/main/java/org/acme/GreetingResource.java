@@ -11,6 +11,8 @@ public class GreetingResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
+        System.out.println("Got into Hello RESTEasy");
+        System.err.println("Fake error in RESTEasy");
         return "Hello RESTEasy";
     }
 }
